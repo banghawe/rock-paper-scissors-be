@@ -2,8 +2,10 @@ const fs = require('fs')
 const path = require('path')
 const Sequelize = require('sequelize')
 
+require('dotenv').config()
+
 const basename = path.basename(__filename)
-const config = require(`${__dirname}/../configs/sequelize`)
+const config = require(`${__dirname}/../configs/sequelize`)[process.env.NODE_ENV || 'development']
 const db = {}
 
 const sequelize = new Sequelize(config.database, config.username, config.password, config)
