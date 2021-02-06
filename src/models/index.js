@@ -11,7 +11,7 @@ const db = {}
 let sequelize = new Sequelize(config.database, config.username, config.password, config)
 
 if (process.env.NODE_ENV === 'production') {
-  sequelize = new Sequelize(process.env.DATABASE_URL)
+  sequelize = new Sequelize(process.env.DATABASE_URL, config)
 }
 
 fs
