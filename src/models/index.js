@@ -8,7 +8,11 @@ const basename = path.basename(__filename)
 const config = require(`${__dirname}/../configs/sequelize`)[process.env.NODE_ENV || 'development']
 const db = {}
 
-const sequelize = new Sequelize(config.database, config.username, config.password, config)
+if (config.use_env_variable) {
+  const sequelize = new Sequelize(process.env[config.use_env_variable]);
+} else {
+  const sequelize = new Sequelize(config.database, config.username, config.password, config)
+}
 
 fs
   .readdirSync(__dirname)
