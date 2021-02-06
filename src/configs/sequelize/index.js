@@ -15,6 +15,7 @@ module.exports = {
   },
   production: {
     dialect: process.env.DB_CONNECTION,
+    database: process.env.DB_DATABASE,
     define: {
       timestamps: false,
       freezeTableName: true,
