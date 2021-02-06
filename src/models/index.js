@@ -15,6 +15,8 @@ if (process.env.NODE_ENV === 'production') {
   sequelize = new Sequelize(process.env.DATABASE_URL)
 }
 
+console.log('lain')
+
 fs
   .readdirSync(__dirname)
   .filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
