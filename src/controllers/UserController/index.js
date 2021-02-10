@@ -33,9 +33,9 @@ class UserController {
 
         return res.status(200).json({ message: 'Register succes, Happy playing ~' })
       } catch (e) {
-        res.status(500).json({ message: `${e}` })
+        await transaction.rollback()
 
-        return transaction.rollback()
+        return res.status(500).json({ message: `${e}` })
       }
     }
 
